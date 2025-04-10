@@ -1,5 +1,13 @@
 import streamlit as st
 import pandas as pd
+import os
+import pandas as pd
+
+# Build the file path in a cross-platform way
+file_path = os.path.join("Dataset", "covid_vaccine_statewise.csv")
+
+# Read the CSV file
+df = pd.read_csv(file_path)
 
 # Page config
 st.set_page_config(page_title="COVID Vaccination India", layout="wide")
@@ -7,7 +15,7 @@ st.set_page_config(page_title="COVID Vaccination India", layout="wide")
 st.title("💉 COVID-19 Vaccination Data Analysis - India")
 
 # Load and clean dataset
-df = pd.read_csv("Dataset\covid_vaccine_statewise.csv")
+
 df.columns = df.columns.str.strip()  # Remove any leading/trailing whitespace
 
 # Show raw data if checkbox selected
